@@ -1,5 +1,6 @@
 from gpt_researcher import GPTResearcher
 import asyncio
+import sys
 
 
 async def main():
@@ -10,6 +11,11 @@ async def main():
 
     # Report Type
     report_type = "research_report"
+    # check if argv[2] exists and is not none
+    if len(sys.argv) > 2 and sys.argv[2] is not None:
+        report_type = sys.argv[2]
+
+    
 
     # Run Research
     researcher = GPTResearcher(query=query, report_type=report_type, config_path=None)
